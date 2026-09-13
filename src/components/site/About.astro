@@ -1,0 +1,64 @@
+---
+---
+
+<section class="about" id="about">
+	<div class="container about__inner">
+		<div class="about__col about__col--label">
+			<h2>درباره آنسِت</h2>
+		</div>
+		<div class="about__col about__col--body">
+			<p class="about__lead">
+				آنسِت به‌جای یک اپ بزرگ و شلوغ، روی چیزهای کوچک و دقیق کار می‌کند؛
+				ابزارهایی که یک کار را درست و تا انتها انجام می‌دهند.
+			</p>
+			<p>
+				اولین حوزه‌ی کاری‌مان صداست: پردازش زنده و بدون تاخیر محسوس، روی
+				سخت‌افزاری که همه از قبل در جیب‌شان دارند. بیت‌میک اولین محصولی
+				است که از این کار بیرون آمده.
+			</p>
+		</div>
+	</div>
+</section>
+
+<style>
+	.about {
+		background: var(--bg);
+		padding-block: clamp(4.5rem, 8vw, 7rem);
+		border-top: 1px solid var(--line);
+	}
+	.about__inner {
+		display: grid;
+		grid-template-columns: 1fr 1.6fr;
+		gap: 3rem;
+	}
+	.about__col--label h2 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		position: sticky;
+		top: 2rem;
+	}
+	.about__col--body {
+		display: flex;
+		flex-direction: column;
+		gap: 1.4rem;
+	}
+	.about__lead {
+		color: var(--ink);
+		font-size: 1.25rem;
+		line-height: 1.8;
+		max-width: 42ch;
+	}
+	.about__col--body p:not(.about__lead) {
+		font-size: 1.05rem;
+		max-width: 48ch;
+	}
+	@media (max-width: 780px) {
+		.about__inner {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+		.about__col--label h2 {
+			position: static;
+		}
+	}
+</style>

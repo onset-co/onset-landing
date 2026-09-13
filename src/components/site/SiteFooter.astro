@@ -1,0 +1,48 @@
+---
+const year = '۱۴۰۵'
+---
+
+<footer class="site-footer">
+	<div class="container site-footer__inner">
+		<a class="site-footer__brand" href="/" aria-label="آنسِت | Onset">
+			<img src="/logo.png" alt="" width="36" height="36" />
+			<span class="site-footer__mark">Onset</span>
+		</a>
+		<p class="site-footer__line">ساخته شده در ایران، {year}.</p>
+	</div>
+</footer>
+
+<style>
+	.site-footer {
+		background: var(--bg);
+		padding-block: 2.75rem;
+	}
+	.site-footer__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+	.site-footer__mark {
+		font-weight: 700;
+		color: var(--ink-dim);
+		font-size: 0.95rem;
+	}
+	.site-footer__brand {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.55rem;
+		text-decoration: none;
+	}
+	.site-footer__brand img {
+		width: 2.25rem;
+		height: 2.25rem;
+		object-fit: contain;
+	}
+	.site-footer__line {
+		color: var(--ink-faint);
+		font-size: 0.9rem;
+		margin: 0;
+	}
+</style>

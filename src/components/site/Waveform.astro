@@ -1,0 +1,67 @@
+---
+// A row of signal bars, styled as an audio meter. Heights are seeded
+// per-instance so repeated uses on the page don't look identical.
+interface Props {
+	bars?: number;
+	seed?: number;
+	animate?: boolean;
+	class?: string;
+}
+
+const { bars = 48, seed = 1, animate = true, class: className = '' } = Astro.props;
+
+function rand(i: number, s: number) {
+	const x = Math.sin(i * 12.9898 + s * 78.233) * 43758.5453;
+	return x - Math.floor(x);
+}
+
+const heights = Array.from({ length: bars }, (_, i) => {
+	const base = 0.18 + rand(i, seed) * 0.82;
+	return Math.round(base * 100) / 100;
+});
+---
+
+<div class:list={['waveform', { 'waveform--static': !animate }]} class={className} aria-hidden="true">
+	{
+		heights.map((h, i) => (
+			<span
+				class="waveform__bar"
+				style={`--h:${h}; --d:${(i % 12) * 0.07}s;`}
+			/>
+		))
+	}
+</div>
+
+<style>
+	.waveform {
+		display: flex;
+		align-items: center;
+		gap: 3px;
+		height: 100%;
+		width: 100%;
+	}
+	.waveform__bar {
+		flex: 1 0 auto;
+		min-width: 2px;
+		max-width: 5px;
+		border-radius: 2px;
+		background: linear-gradient(180deg, var(--accent), rgba(231, 168, 84, 0.35));
+		height: calc(var(--h) * 100%);
+		transform-origin: center;
+		animation: pulse 2.4s ease-in-out var(--d) infinite;
+	}
+	.waveform--static .waveform__bar {
+		animation: none;
+	}
+	@keyframes pulse {
+		0%,
+		100% {
+			transform: scaleY(0.55);
+			opacity: 0.65;
+		}
+		50% {
+			transform: scaleY(1);
+			opacity: 1;
+		}
+	}
+</style>
