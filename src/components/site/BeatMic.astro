@@ -1,158 +1,174 @@
 ---
 const features = [
-	'تاخیر خیلی کم، مناسب پخش زنده‌ی صدا',
-	'جلوه‌های صوتی واقعی: اکو، ریوِرب، اکولایزر، کمپرسور',
-	'محافظ سوت، همیشه فعال در برابر فیدبک ناخواسته',
-	'هم‌زمانی با اپ‌های موسیقی دیگر در حالت Mix',
-	'نمای ساده برای استفاده‌ی سریع، نمای پیشرفته برای کنترل دقیق',
+	'روشن‌کردن میکروفون و شنیدن صدای خودت با پایش زنده',
+	'پریست‌های گفتار و صداهای سرگرم‌کننده، با کنترل‌های پیشرفته‌ی صدا',
+	'حالت Mix برای استفاده کنار موسیقیِ در حال پخش از اپی دیگر',
+	'Feedback Guard برای کاهش یا قطع خروجی در شرایط پرخطر',
 ];
-
-// TODO(onset): replace with the live Cafe Bazaar product URL once BeatMic is published.
-const BAZAAR_URL = 'https://cafebazaar.ir/app/com.onset.beatmic';
 ---
 
-<section class="beatmic" id="beatmic">
+<section class="beatmic" id="beatmic" aria-labelledby="beatmic-title">
 	<div class="container beatmic__inner">
+		<div class="beatmic__content">
+			<p class="beatmic__eyebrow"><span>محصول ۰۱</span><span class="beatmic__eyebrow-line"></span> صدای زنده</p>
+			<h2 class="beatmic__title" id="beatmic-title">بیت‌میک</h2>
+			<p class="beatmic__subhead">میکروفونت همیشه همراهته.</p>
+			<p class="beatmic__body">
+				برای ارائه، تمرین یا یک دورهمی کوچک، گوشی را به هدفون یا بلندگوی خارجی وصل کن و با صدای خودت همراه شو. بیت‌میک میکروفون زنده را با افکت‌های صوتی و کنترل‌هایی برای استفاده‌ی ساده یا دقیق کنار هم می‌آورد.
+			</p>
+
+			<ul class="beatmic__features">
+				{features.map((feature) => (
+					<li>
+						<span class="beatmic__feature-mark" aria-hidden="true">
+							<svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+								<path d="m2.5 6.2 2.2 2.1 4.8-4.7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</span>
+						{feature}
+					</li>
+				))}
+			</ul>
+
+			<div class="beatmic__note">
+				<span class="beatmic__note-dot" aria-hidden="true"></span>
+				<p>برای پایش زنده به هدفون یا بلندگوی خارجی نیاز است. اتصال بلوتوث ممکن است تأخیر محسوسی داشته باشد؛ هدفون سیمی یا USB انتخاب کم‌تأخیرتری است.</p>
+			</div>
+		</div>
+
 		<div class="beatmic__visual">
+			<div class="beatmic__visual-halo" aria-hidden="true"></div>
 			<img
 				class="beatmic__screenshot"
 				src="/Screenshot_BeatMic_1.jpg"
-				alt="نمایی از رابط کاربری بیت‌میک"
+				alt="نمای فارسی صفحه‌ی میکروفون زنده در اپ بیت‌میک"
 				width="1080"
 				height="2340"
 				loading="lazy"
 			/>
-		</div>
-
-		<div class="beatmic__content">
-			<span class="beatmic__eyebrow">اولین محصول آنسِت</span>
-			<h2 class="beatmic__title">بیت‌میک</h2>
-			<p class="beatmic__subhead">گوشی‌ات را به یک میکروفون حرفه‌ای تبدیل کن.</p>
-			<p class="beatmic__body">
-				وقتی بلندگو داری ولی میکروفون نه؛ سالن ارائه، کلاس، مهمانی یا تمرین
-				خواندن. کافی‌ست گوشی را به بلندگو وصل کنی، بیت‌میک را باز کنی و
-				دکمه‌ی شروع را بزنی. صدایت آنی و با تاخیری خیلی کم پخش می‌شود.
-			</p>
-
-			<ul class="beatmic__features">
-				{
-					features.map((f) => (
-						<li>
-							<span class="beatmic__feature-mark" />
-							{f}
-						</li>
-					))
-				}
-			</ul>
-
-			<a class="beatmic__cta visible-focus" href={BAZAAR_URL} target="_blank" rel="noopener">
-				دریافت از کافه‌بازار
-			</a>
+			<div class="beatmic__visual-label"><span></span> اندروید · میکروفون زنده</div>
 		</div>
 	</div>
 </section>
 
 <style>
 	.beatmic {
-		background: linear-gradient(180deg, var(--bg-raised) 0%, var(--bg-raised-2) 100%);
-		border-top: 1px solid var(--line);
-		border-bottom: 1px solid var(--line);
-		padding-block: clamp(5rem, 9vw, 8rem);
+		position: relative;
+		overflow: hidden;
+		padding-block: clamp(5.5rem, 10vw, 9rem);
+		border-block: 1px solid var(--line);
+		background: linear-gradient(135deg, rgba(25, 37, 78, 0.28), transparent 54%), var(--bg-raised);
 	}
 	.beatmic__inner {
 		display: grid;
-		grid-template-columns: 0.85fr 1.15fr;
-		gap: clamp(2.5rem, 6vw, 5rem);
+		grid-template-columns: 1.1fr 0.9fr;
 		align-items: center;
+		gap: clamp(3rem, 8vw, 8rem);
 	}
+	.beatmic__content { position: relative; z-index: 1; }
 	.beatmic__eyebrow {
-		display: inline-block;
-		color: var(--accent);
-		font-weight: 500;
-		font-size: 0.95rem;
-		margin-bottom: 0.9rem;
-	}
-	.beatmic__title {
-		font-size: clamp(2rem, 4vw, 2.6rem);
-		font-weight: 700;
-	}
-	.beatmic__subhead {
-		color: var(--ink);
-		font-size: 1.2rem;
-		margin-top: 0.6rem;
-		max-width: 32ch;
-	}
-	.beatmic__body {
-		margin-top: 1.1rem;
-		font-size: 1.05rem;
-		max-width: 48ch;
-	}
-	.beatmic__features {
-		list-style: none;
-		margin: 2rem 0 0;
-		padding: 0;
 		display: flex;
-		flex-direction: column;
-		gap: 0.85rem;
+		align-items: center;
+		gap: 0.8rem;
+		margin-bottom: 1rem;
+		color: var(--accent);
+		font-size: 0.85rem;
+		font-weight: 650;
+	}
+	.beatmic__eyebrow > span:first-child { direction: ltr; font-family: sans-serif; letter-spacing: 0.08em; }
+	.beatmic__eyebrow-line { width: 2.4rem; height: 1px; background: var(--accent); opacity: 0.65; }
+	.beatmic__title { font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: -0.04em; }
+	.beatmic__subhead {
+		margin-top: 0.45rem;
+		color: var(--ink);
+		font-size: clamp(1.2rem, 2vw, 1.55rem);
+		font-weight: 500;
+	}
+	.beatmic__body { max-width: 49ch; margin-top: 1rem; font-size: 1rem; line-height: 2; }
+	.beatmic__features {
+		display: grid;
+		gap: 0.9rem;
+		margin: 1.8rem 0 0;
+		padding: 0;
+		list-style: none;
 	}
 	.beatmic__features li {
 		display: flex;
 		align-items: flex-start;
 		gap: 0.7rem;
+		max-width: 48ch;
 		color: var(--ink);
-		font-size: 1rem;
-		max-width: 46ch;
+		font-size: 0.96rem;
 	}
 	.beatmic__feature-mark {
 		flex: none;
-		width: 7px;
-		height: 7px;
-		margin-top: 0.55rem;
+		display: grid;
+		width: 1.35rem;
+		height: 1.35rem;
+		margin-top: 0.23rem;
+		place-items: center;
 		border-radius: 50%;
-		background: var(--accent);
+		background: var(--accent-soft);
+		color: var(--accent);
 	}
-	.beatmic__cta {
-		display: inline-flex;
-		align-items: center;
-		margin-top: 2.4rem;
-		padding: 0.9rem 1.9rem;
-		background: var(--accent);
-		color: var(--accent-ink);
-		font-weight: 700;
-		font-size: 1rem;
-		border-radius: 999px;
-		text-decoration: none;
-		transition: filter 0.2s ease, transform 0.2s ease;
-	}
-	.beatmic__cta:hover {
-		filter: brightness(1.08);
-		transform: translateY(-1px);
-	}
-
-	.beatmic__visual {
+	.beatmic__note {
 		display: flex;
-		justify-content: center;
+		align-items: flex-start;
+		gap: 0.65rem;
+		max-width: 52ch;
+		margin-top: 1.8rem;
+		padding-top: 1rem;
+		border-top: 1px solid var(--line);
+	}
+	.beatmic__note p { color: var(--ink-faint); font-size: 0.82rem; line-height: 1.9; }
+	.beatmic__note-dot { flex: none; width: 6px; height: 6px; margin-top: 0.62rem; border-radius: 50%; background: var(--mint); }
+	.beatmic__visual { position: relative; display: flex; justify-content: center; align-items: center; min-height: 510px; }
+	.beatmic__visual-halo {
+		position: absolute;
+		width: min(100%, 430px);
+		aspect-ratio: 1;
+		border: 1px solid rgba(120, 149, 255, 0.16);
+		border-radius: 50%;
+		background: radial-gradient(circle, rgba(64, 89, 180, 0.15), transparent 68%);
+		box-shadow: 0 0 90px rgba(72, 101, 222, 0.1);
 	}
 	.beatmic__screenshot {
-		width: 100%;
+		position: relative;
+		z-index: 1;
+		width: min(67%, 275px);
 		height: auto;
-		max-width: 300px;
 		aspect-ratio: 1080 / 2340;
-		object-fit: contain;
+		object-fit: cover;
+		border: 1px solid rgba(221, 229, 255, 0.24);
+		border-radius: 30px;
+		box-shadow: 0 35px 90px rgba(0, 0, 0, 0.65), 0 0 50px rgba(67, 94, 199, 0.16);
+	}
+	.beatmic__visual-label {
+		position: absolute;
+		z-index: 2;
+		inset-block-end: 7%;
+		inset-inline-start: 0;
+		display: flex;
+		align-items: center;
+		gap: 0.55rem;
+		padding: 0.65rem 0.85rem;
 		border: 1px solid var(--line-strong);
-		border-radius: 28px;
+		border-radius: 999px;
+		background: rgba(12, 16, 27, 0.88);
+		color: var(--ink-dim);
+		font-size: 0.77rem;
 		box-shadow: var(--shadow);
 	}
-
-	@media (max-width: 860px) {
-		.beatmic__inner {
-			grid-template-columns: 1fr;
-		}
-		.beatmic__visual {
-			order: -1;
-		}
-		.beatmic__screenshot {
-			max-width: 220px;
-		}
+	.beatmic__visual-label span { width: 6px; height: 6px; border-radius: 50%; background: var(--mint); }
+	@media (max-width: 800px) {
+		.beatmic__inner { grid-template-columns: 1fr 0.75fr; gap: 2rem; }
+		.beatmic__visual { min-height: 400px; }
+		.beatmic__screenshot { width: min(78%, 250px); }
+	}
+	@media (max-width: 640px) {
+		.beatmic__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+		.beatmic__visual { grid-row: 1; min-height: 370px; }
+		.beatmic__screenshot { width: min(57%, 230px); }
+		.beatmic__visual-label { inset-inline-start: 4%; inset-block-end: 4%; }
 	}
 </style>

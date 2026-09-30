@@ -1,5 +1,5 @@
 ---
-const year = '۱۴۰۵'
+const year = new Intl.DateTimeFormat('fa-IR-u-ca-persian', { year: 'numeric' }).format(new Date());
 ---
 
 <footer class="site-footer">
@@ -8,7 +8,12 @@ const year = '۱۴۰۵'
 			<img src="/logo.png" alt="" width="36" height="36" />
 			<span class="site-footer__mark">Onset</span>
 		</a>
-		<p class="site-footer__line">ساخته شده در ایران، {year}.</p>
+		<nav class="site-footer__nav" aria-label="پیوندهای پایین صفحه">
+			<a href="#beatmic">بیت‌میک</a>
+			<a href="#beaton">بیت‌آن</a>
+			<a href="#about">درباره‌ی آنسِت</a>
+		</nav>
+		<p class="site-footer__line">ساخته‌شده در ایران · {year}</p>
 	</div>
 </footer>
 
@@ -21,7 +26,7 @@ const year = '۱۴۰۵'
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1rem;
+		gap: 1.25rem;
 		flex-wrap: wrap;
 	}
 	.site-footer__mark {
@@ -44,5 +49,14 @@ const year = '۱۴۰۵'
 		color: var(--ink-faint);
 		font-size: 0.9rem;
 		margin: 0;
+	}
+	.site-footer__nav { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+	.site-footer__nav a { color: var(--ink-faint); font-size: 0.84rem; text-decoration: none; transition: color 0.2s ease; }
+	.site-footer__nav a:hover { color: var(--ink); }
+	@media (max-width: 640px) {
+		.site-footer { padding-block: 2rem; }
+		.site-footer__inner { align-items: flex-start; }
+		.site-footer__nav { order: 3; width: 100%; padding-top: 0.5rem; border-top: 1px solid var(--line); }
+		.site-footer__line { font-size: 0.8rem; }
 	}
 </style>

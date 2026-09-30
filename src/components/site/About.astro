@@ -1,64 +1,45 @@
----
----
-
-<section class="about" id="about">
+<section class="about" id="about" aria-labelledby="about-title">
 	<div class="container about__inner">
-		<div class="about__col about__col--label">
-			<h2>درباره آنسِت</h2>
+		<div class="about__heading">
+			<p class="about__eyebrow">درباره‌ی آنسِت</p>
+			<h2 id="about-title">تجربه‌های خوب،<br />از جزئیات شروع می‌شوند.</h2>
 		</div>
-		<div class="about__col about__col--body">
+		<div class="about__body">
 			<p class="about__lead">
-				آنسِت به‌جای یک اپ بزرگ و شلوغ، روی چیزهای کوچک و دقیق کار می‌کند؛
-				ابزارهایی که یک کار را درست و تا انتها انجام می‌دهند.
+				ما نرم‌افزارهایی می‌سازیم که یک کار را روشن، دقیق و بی‌دردسر انجام می‌دهند.
 			</p>
 			<p>
-				اولین حوزه‌ی کاری‌مان صداست: پردازش زنده و بدون تاخیر محسوس، روی
-				سخت‌افزاری که همه از قبل در جیب‌شان دارند. بیت‌میک اولین محصولی
-				است که از این کار بیرون آمده.
+				در آنسِت، فناوری را از دل نیازهای واقعی طراحی می‌کنیم؛ از شنیدن و شکل‌دادن به صدا تا پیدا کردن آهنگ و همراه‌شدن با آن. بیت‌میک و بیت‌آن دو نگاه متفاوت به همین علاقه‌اند.
 			</p>
+			<div class="about__principles" aria-label="محصولات آنسِت">
+				<span><i class="about__dot about__dot--blue"></i>صدای زنده</span>
+				<span><i class="about__dot about__dot--coral"></i>هم‌خوانی با موسیقی</span>
+			</div>
 		</div>
 	</div>
 </section>
 
 <style>
 	.about {
-		background: var(--bg);
 		padding-block: clamp(4.5rem, 8vw, 7rem);
-		border-top: 1px solid var(--line);
+		background: var(--bg);
 	}
 	.about__inner {
 		display: grid;
-		grid-template-columns: 1fr 1.6fr;
-		gap: 3rem;
+		grid-template-columns: 1fr 1fr;
+		gap: clamp(2rem, 8vw, 8rem);
 	}
-	.about__col--label h2 {
-		font-size: 1.5rem;
-		font-weight: 700;
-		position: sticky;
-		top: 2rem;
-	}
-	.about__col--body {
-		display: flex;
-		flex-direction: column;
-		gap: 1.4rem;
-	}
-	.about__lead {
-		color: var(--ink);
-		font-size: 1.25rem;
-		line-height: 1.8;
-		max-width: 42ch;
-	}
-	.about__col--body p:not(.about__lead) {
-		font-size: 1.05rem;
-		max-width: 48ch;
-	}
-	@media (max-width: 780px) {
-		.about__inner {
-			grid-template-columns: 1fr;
-			gap: 1.5rem;
-		}
-		.about__col--label h2 {
-			position: static;
-		}
+	.about__eyebrow { margin-bottom: 1rem; color: var(--ink-faint); font-size: 0.83rem; font-weight: 600; }
+	.about__heading h2 { font-size: clamp(1.65rem, 3vw, 2.45rem); line-height: 1.65; letter-spacing: -0.025em; }
+	.about__body { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
+	.about__lead { color: var(--ink); font-size: clamp(1.1rem, 1.8vw, 1.35rem); font-weight: 550; line-height: 1.9; }
+	.about__body > p:not(.about__lead) { max-width: 48ch; font-size: 0.96rem; line-height: 2; }
+	.about__principles { display: flex; flex-wrap: wrap; gap: 0.65rem 1.25rem; margin-top: 0.4rem; }
+	.about__principles span { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--ink-dim); font-size: 0.82rem; }
+	.about__dot { width: 7px; height: 7px; border-radius: 50%; }
+	.about__dot--blue { background: var(--accent); }
+	.about__dot--coral { background: var(--coral); }
+	@media (max-width: 700px) {
+		.about__inner { grid-template-columns: 1fr; gap: 1.5rem; }
 	}
 </style>

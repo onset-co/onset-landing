@@ -3,116 +3,297 @@ import Waveform from './Waveform.astro';
 ---
 
 <section class="hero">
-	<div class="hero__wave">
-		<Waveform bars={72} seed={3} />
-	</div>
-	<div class="container hero__inner">
-		<div class="hero__brand" aria-label="آنسِت | Onset">
-			<img class="hero__logo" src="/logo.png" alt="" width="56" height="56" />
-			<span class="hero__mark">Onset</span>
+	<div class="hero__ambient" aria-hidden="true"></div>
+	<div class="container hero__container">
+		<header class="hero__header">
+			<a class="hero__brand visible-focus" href="/" aria-label="آنسِت، صفحه‌ی اصلی">
+				<img class="hero__logo" src="/logo.png" alt="" width="48" height="48" />
+				<span>onset<span class="hero__brand-dot">.</span></span>
+			</a>
+			<nav class="hero__nav" aria-label="پیمایش اصلی">
+				<a href="#beatmic">بیت‌میک</a>
+				<a href="#beaton">بیت‌آن</a>
+				<a href="#about">درباره‌ی ما</a>
+			</nav>
+		</header>
+
+		<div class="hero__main">
+			<div class="hero__copy">
+				<p class="hero__eyebrow"><span></span> استودیوی محصول آنسِت</p>
+				<h1 class="hero__title">برای لحظه‌هایی<br />که صدا مهم است.</h1>
+				<p class="hero__sub">
+					از میکروفون زنده‌ی بیت‌میک تا هم‌خوانی با بیت‌آن؛ ابزارهایی که فناوری صدا را به تجربه‌ای ساده و روزمره تبدیل می‌کنند.
+				</p>
+				<div class="hero__actions">
+					<a class="hero__cta hero__cta--primary visible-focus" href="#beatmic">
+						دیدن محصولات
+						<svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true">
+							<path d="M8.5 3v11m0 0 4-4m-4 4-4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+					</a>
+					<a class="hero__cta hero__cta--quiet visible-focus" href="#beaton">آینده‌ی بیت‌آن</a>
+				</div>
+			</div>
+
+			<div class="hero__art" aria-label="دو محصول آنسِت برای صدا و موسیقی">
+				<div class="hero__orbit hero__orbit--outer"></div>
+				<div class="hero__orbit hero__orbit--inner"></div>
+				<div class="hero__signal">
+					<span class="hero__signal-label">SOUND, IN MOTION</span>
+					<div class="hero__wave"><Waveform bars={40} seed={12} /></div>
+					<div class="hero__product hero__product--mic">
+						<span class="hero__product-icon" aria-hidden="true">
+							<svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+								<rect x="6" y="2" width="5" height="9" rx="2.5" stroke="currentColor" stroke-width="1.3" />
+								<path d="M3.5 8.5a5 5 0 0 0 10 0M8.5 13.5V16m-2 0h4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
+							</svg>
+						</span>
+						<span><b>BeatMic</b><small>میکروفون زنده</small></span>
+					</div>
+					<div class="hero__product hero__product--on">
+						<span class="hero__product-icon" aria-hidden="true">
+							<svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+								<path d="M3 12.5V4.7c0-.7.8-1.1 1.4-.7l9.2 6.8c.6.4.3 1.3-.4 1.3H3Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" />
+								<path d="M5.2 10.7h.1m2.1-2h.1m2.1-2h.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+							</svg>
+						</span>
+						<span><b>Beaton</b><small>موسیقی و هم‌خوانی</small></span>
+					</div>
+				</div>
+			</div>
 		</div>
-		<h1 class="hero__title">جایی که غیرممکن آغاز می‌شود</h1>
-		<p class="hero__sub">
-			آنسِت یک استودیو ساخت راهکارهای نرم‌افزاری کارآمد است
-		</p>
-		<a class="hero__cta visible-focus" href="#beatmic">
-			<span>آشنایی با بیت‌میک</span>
-			<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<path
-					d="M8 3v10M8 13l-4-4M8 13l4-4"
-					stroke="currentColor"
-					stroke-width="1.4"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-				></path>
-			</svg>
-		</a>
+
+		<div class="hero__foot">
+			<span>ساخته‌شده برای صدا، با دقت و کنجکاوی</span>
+			<span class="hero__index">ONSET&nbsp; / &nbsp;۰۱—۰۲</span>
+		</div>
 	</div>
 </section>
 
 <style>
 	.hero {
 		position: relative;
-		min-height: 92svh;
-		display: flex;
-		align-items: center;
+		min-height: 100svh;
 		overflow: hidden;
-		background: radial-gradient(120% 90% at 50% 0%, #0b1128 0%, var(--bg) 62%);
+		background: radial-gradient(70% 70% at 8% 50%, rgba(38, 58, 125, 0.18), transparent 72%), var(--bg);
 	}
-	.hero__wave {
+	.hero__ambient {
 		position: absolute;
-		inset-inline: 0;
-		bottom: 0;
-		height: 34%;
-		opacity: 0.22;
-		mask-image: linear-gradient(180deg, transparent, black 78%);
-		-webkit-mask-image: linear-gradient(180deg, transparent, black 78%);
+		inset-block: 0;
+		inset-inline-start: 50%;
+		width: 1px;
+		background: linear-gradient(transparent, var(--line-strong) 24%, var(--line) 76%, transparent);
+		opacity: 0.55;
 	}
-	.hero__inner {
+	.hero__container {
 		position: relative;
 		display: flex;
+		min-height: 100svh;
 		flex-direction: column;
-		align-items: flex-start;
-		gap: 1.75rem;
-		padding-block: 6rem;
-		text-align: start;
 	}
-	.hero__mark {
-		font-family: 'Vazirmatn Variable', sans-serif;
-		font-weight: 700;
-		font-size: 1.05rem;
-		letter-spacing: 0.02em;
-		color: var(--ink);
+	.hero__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-block: 1.4rem;
+		border-bottom: 1px solid var(--line);
 	}
 	.hero__brand {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.7rem;
+		gap: 0.45rem;
+		color: var(--ink);
+		font-size: 1.2rem;
+		font-weight: 800;
+		letter-spacing: -0.04em;
+		text-decoration: none;
 	}
 	.hero__logo {
-		width: 3.5rem;
-		height: 3.5rem;
+		width: 2.9rem;
+		height: 2.9rem;
 		object-fit: contain;
 	}
+	.hero__brand-dot { color: var(--accent); }
+	.hero__nav {
+		display: flex;
+		align-items: center;
+		gap: clamp(1.2rem, 3vw, 2.5rem);
+		font-size: 0.92rem;
+	}
+	.hero__nav a {
+		color: var(--ink-dim);
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+	.hero__nav a:hover { color: var(--ink); }
+	.hero__main {
+		flex: 1;
+		display: grid;
+		grid-template-columns: 1fr 0.9fr;
+		align-items: center;
+		gap: clamp(2rem, 6vw, 6rem);
+		padding-block: 3.5rem 4rem;
+	}
+	.hero__copy { position: relative; z-index: 1; }
+	.hero__eyebrow {
+		display: flex;
+		align-items: center;
+		gap: 0.65rem;
+		margin-bottom: 1.5rem;
+		color: var(--accent);
+		font-size: 0.9rem;
+		font-weight: 600;
+		letter-spacing: 0.01em;
+	}
+	.hero__eyebrow span {
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
+		background: var(--mint);
+		box-shadow: 0 0 16px rgba(131, 227, 195, 0.65);
+	}
 	.hero__title {
-		font-size: clamp(2.1rem, 5vw, 3.4rem);
-		font-weight: 700;
-		max-width: 16ch;
-		letter-spacing: -0.01em;
+		max-width: 13ch;
+		font-size: clamp(2.8rem, 6.7vw, 5.6rem);
+		font-weight: 750;
+		letter-spacing: -0.045em;
+		line-height: 1.3;
 	}
 	.hero__sub {
-		font-size: 1.15rem;
-		line-height: 1.85;
-		max-width: 46ch;
+		max-width: 43ch;
+		margin-top: 1.35rem;
+		font-size: clamp(1rem, 1.45vw, 1.18rem);
+		line-height: 2;
+	}
+	.hero__actions {
+		display: inline-flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 1rem 1.5rem;
+		margin-top: 2rem;
 	}
 	.hero__cta {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.6rem;
-		margin-top: 0.75rem;
-		padding-block: 0.4rem;
-		color: var(--ink);
+		justify-content: center;
+		gap: 0.65rem;
+		min-height: 3.25rem;
+		padding: 0.7rem 1.25rem;
 		text-decoration: none;
-		font-weight: 500;
-		border-bottom: 1px solid var(--line-strong);
-		transition: border-color 0.2s ease, color 0.2s ease;
+		font-size: 0.98rem;
+		font-weight: 650;
+		transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 	}
-	.hero__cta svg {
-		transition: transform 0.2s ease;
+	.hero__cta--primary {
+		border: 1px solid var(--accent);
+		border-radius: 999px;
+		background: var(--accent);
+		color: var(--accent-ink);
 	}
-	.hero__cta:hover {
+	.hero__cta--primary:hover { background: #9bafff; transform: translateY(-2px); }
+	.hero__cta--quiet { padding-inline: 0.25rem; color: var(--ink-dim); }
+	.hero__cta--quiet:hover { color: var(--ink); }
+	.hero__cta svg { transition: transform 0.2s ease; }
+	.hero__cta--primary:hover svg { transform: translateY(3px); }
+	.hero__art {
+		position: relative;
+		min-height: 430px;
+		display: grid;
+		place-items: center;
+	}
+	.hero__orbit {
+		position: absolute;
+		aspect-ratio: 1;
+		border: 1px solid var(--line);
+		border-radius: 50%;
+	}
+	.hero__orbit--outer { width: min(100%, 420px); }
+	.hero__orbit--inner { width: min(76%, 320px); border-style: dashed; opacity: 0.5; }
+	.hero__signal {
+		position: relative;
+		width: min(88%, 360px);
+		aspect-ratio: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 1.2rem;
+		border: 1px solid var(--line-strong);
+		border-radius: 50%;
+		background: radial-gradient(circle at 50% 45%, rgba(41, 61, 133, 0.36), rgba(9, 12, 22, 0.9) 68%);
+		box-shadow: 0 0 100px rgba(72, 101, 222, 0.1), inset 0 0 80px rgba(72, 101, 222, 0.06);
+	}
+	.hero__signal-label {
+		color: var(--ink-faint);
+		font-family: sans-serif;
+		font-size: 0.62rem;
+		letter-spacing: 0.24em;
+	}
+	.hero__wave { width: 78%; height: 95px; opacity: 0.92; }
+	.hero__product {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		gap: 0.7rem;
+		padding: 0.7rem 0.9rem;
+		border: 1px solid var(--line-strong);
+		border-radius: 14px;
+		background: rgba(14, 18, 31, 0.88);
+		box-shadow: var(--shadow);
+		backdrop-filter: blur(14px);
+	}
+	.hero__product--mic { inset-block-start: 22%; inset-inline-end: -5%; }
+	.hero__product--on { inset-block-end: 20%; inset-inline-start: -5%; }
+	.hero__product-icon {
+		display: grid;
+		width: 2.35rem;
+		height: 2.35rem;
+		place-items: center;
+		border-radius: 10px;
+		background: var(--accent-soft);
 		color: var(--accent);
-		border-color: var(--accent);
 	}
-	.hero__cta:hover svg {
-		transform: translateY(3px);
+	.hero__product--on .hero__product-icon { background: rgba(255, 130, 120, 0.12); color: var(--coral); }
+	.hero__product b, .hero__product small { display: block; white-space: nowrap; }
+	.hero__product b { font-family: sans-serif; font-size: 0.83rem; letter-spacing: 0.02em; }
+	.hero__product small { margin-top: 0.05rem; color: var(--ink-dim); font-size: 0.74rem; }
+	.hero__foot {
+		display: flex;
+		justify-content: space-between;
+		gap: 1rem;
+		padding-block: 1.1rem 1.35rem;
+		border-top: 1px solid var(--line);
+		color: var(--ink-faint);
+		font-size: 0.78rem;
 	}
-	@media (max-width: 640px) {
-		.hero {
-			min-height: 82svh;
-		}
-		.hero__inner {
-			padding-block: 4rem;
-		}
+	.hero__index { direction: ltr; font-family: sans-serif; letter-spacing: 0.14em; }
+	@media (max-width: 860px) {
+		.hero__main { grid-template-columns: 1.1fr 0.9fr; gap: 1rem; }
+		.hero__art { min-height: 360px; }
+		.hero__product--mic { inset-inline-end: -10%; }
+		.hero__product--on { inset-inline-start: -10%; }
+	}
+	@media (max-width: 680px) {
+		.hero__container { min-height: auto; }
+		.hero__header { align-items: flex-start; flex-direction: column; gap: 0.65rem; padding-block: 0.8rem; }
+		.hero__logo { width: 2.35rem; height: 2.35rem; }
+		.hero__nav { width: 100%; justify-content: space-between; gap: 0.75rem; font-size: 0.82rem; }
+		.hero__main { grid-template-columns: 1fr; gap: 0.5rem; padding-block: 3.5rem 2rem; }
+		.hero__title { max-width: 12ch; font-size: clamp(2.65rem, 12vw, 4.2rem); }
+		.hero__sub { max-width: 38ch; }
+		.hero__actions { margin-top: 1.5rem; }
+		.hero__art { min-height: 300px; margin-top: 0.5rem; }
+		.hero__orbit--outer { width: min(76%, 300px); }
+		.hero__orbit--inner { width: min(60%, 240px); }
+		.hero__signal { width: min(70%, 270px); }
+		.hero__wave { height: 75px; }
+		.hero__product--mic { inset-block-start: 14%; inset-inline-end: 0; }
+		.hero__product--on { inset-block-end: 13%; inset-inline-start: 0; }
+		.hero__foot { font-size: 0.7rem; }
+	}
+	@media (max-width: 380px) {
+		.hero__nav { font-size: 0.75rem; }
+		.hero__product { padding: 0.55rem 0.65rem; }
+		.hero__product-icon { width: 2rem; height: 2rem; }
 	}
 </style>

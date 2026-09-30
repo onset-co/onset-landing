@@ -1,0 +1,203 @@
+---
+const currentFeatures = [
+	'جست‌وجوی آهنگ‌ها و هنرمندان',
+	'پخش نسخه‌ی بی‌کلام برای هم‌خوانی',
+	'دنبال‌کردن متن ترانه همراه موسیقی',
+];
+
+const searchImprovements = ['نام‌های دیگر هنرمندان', 'تحمل خطای تایپی', 'مرتب‌سازی مرتبط‌تر'];
+---
+
+<section class="beaton" id="beaton" aria-labelledby="beaton-title">
+	<div class="container">
+		<div class="beaton__intro">
+			<div>
+				<p class="beaton__eyebrow"><span class="beaton__eyebrow-index">محصول ۰۲</span><span class="beaton__eyebrow-line"></span> موسیقی و هم‌خوانی</p>
+				<h2 class="beaton__title" id="beaton-title">بیت‌آن</h2>
+			</div>
+			<p class="beaton__lead">
+				آهنگ یا هنرمندت را پیدا کن، نسخه‌ی بی‌کلام را پخش کن و با متن ترانه همراه شو. بیت‌آن برای کشف موسیقی فارسی و لذت هم‌خوانی ساخته می‌شود.
+			</p>
+		</div>
+
+		<div class="beaton__current" aria-label="قابلیت‌های فعلی بیت‌آن">
+			<div class="beaton__current-label"><span></span> هسته‌ی تجربه‌ی بیت‌آن</div>
+			{currentFeatures.map((feature, index) => (
+				<div class="beaton__current-item">
+					<span class="beaton__current-number">{(index + 1).toLocaleString('fa-IR', { minimumIntegerDigits: 2, useGrouping: false })}</span>
+					<span>{feature}</span>
+				</div>
+			))}
+		</div>
+
+		<div class="beaton__next" id="beaton-roadmap">
+			<div class="beaton__next-copy">
+				<p class="beaton__next-status"><span></span> در برنامه‌ی توسعه</p>
+				<h3>پیدا کردن آهنگ، هوشمندتر</h3>
+				<p class="beaton__next-description">
+					گام بعدی، بهتر کردن جست‌وجوی فارسی است تا حتی با شکل‌های مختلف نام هنرمند یا یک اشتباه تایپی کوچک، راحت‌تر به آهنگ موردنظرت برسی.
+				</p>
+				<p class="beaton__roadmap-note">این بهبودها در برنامه‌ی توسعه‌اند؛ هنوز زمان انتشارشان اعلام نشده است.</p>
+			</div>
+			<div class="beaton__next-visual" aria-label="زمینه‌های بهبود جست‌وجوی بیت‌آن">
+				<div class="beaton__search-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
+				<div class="beaton__search-symbol" aria-hidden="true">
+					<svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+						<circle cx="14" cy="14" r="8" stroke="currentColor" stroke-width="1.7" />
+						<path d="m20 20 6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+					</svg>
+				</div>
+				<div class="beaton__search-tags">
+					{searchImprovements.map((feature, index) => (
+						<span class={`beaton__search-tag beaton__search-tag--${index + 1}`}>{feature}</span>
+					))}
+				</div>
+				<span class="beaton__visual-caption">جست‌وجوی فارسی، باهوش‌تر</span>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.beaton {
+		position: relative;
+		overflow: hidden;
+		padding-block: clamp(5.5rem, 10vw, 9rem);
+		background: radial-gradient(60% 50% at 92% 12%, rgba(106, 49, 63, 0.16), transparent 78%), #0a0b11;
+		border-bottom: 1px solid var(--line);
+	}
+	.beaton__intro {
+		display: grid;
+		grid-template-columns: 0.9fr 1.1fr;
+		align-items: end;
+		gap: 3rem;
+	}
+	.beaton__eyebrow {
+		display: flex;
+		align-items: center;
+		gap: 0.8rem;
+		margin-bottom: 0.9rem;
+		color: var(--coral);
+		font-size: 0.85rem;
+		font-weight: 650;
+	}
+	.beaton__eyebrow-index { direction: ltr; font-family: sans-serif; letter-spacing: 0.08em; }
+	.beaton__eyebrow-line { width: 2.4rem; height: 1px; background: var(--coral); opacity: 0.7; }
+	.beaton__title { font-size: clamp(2.7rem, 5vw, 4.2rem); letter-spacing: -0.045em; }
+	.beaton__lead { max-width: 48ch; color: var(--ink-dim); font-size: clamp(1.05rem, 1.7vw, 1.25rem); line-height: 2; }
+	.beaton__current {
+		display: grid;
+		grid-template-columns: 1.05fr repeat(3, 1fr);
+		align-items: center;
+		gap: 1rem;
+		margin-top: 3.2rem;
+		padding-block: 1.25rem;
+		border-block: 1px solid var(--line);
+	}
+	.beaton__current-label {
+		display: flex;
+		align-items: center;
+		gap: 0.55rem;
+		color: var(--ink-dim);
+		font-size: 0.85rem;
+		font-weight: 600;
+	}
+	.beaton__current-label span { width: 6px; height: 6px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 12px rgba(131, 227, 195, 0.55); }
+	.beaton__current-item {
+		display: flex;
+		align-items: center;
+		gap: 0.65rem;
+		color: var(--ink);
+		font-size: 0.88rem;
+	}
+	.beaton__current-number { color: var(--coral); font-family: sans-serif; font-size: 0.7rem; letter-spacing: 0.08em; }
+	.beaton__next {
+		position: relative;
+		display: grid;
+		grid-template-columns: 1.1fr 0.9fr;
+		align-items: center;
+		gap: 2rem;
+		min-height: 340px;
+		margin-top: clamp(3rem, 7vw, 5.5rem);
+		padding: clamp(1.5rem, 4vw, 3.25rem);
+		border: 1px solid rgba(255, 130, 120, 0.17);
+		border-radius: 24px;
+		background: linear-gradient(115deg, rgba(255, 130, 120, 0.045), rgba(17, 19, 29, 0.92) 55%), #0d1019;
+		box-shadow: 0 28px 80px rgba(0, 0, 0, 0.25);
+	}
+	.beaton__next-copy { position: relative; z-index: 1; }
+	.beaton__next-status { display: flex; align-items: center; gap: 0.55rem; color: var(--coral); font-size: 0.83rem; font-weight: 650; }
+	.beaton__next-status span { width: 6px; height: 6px; border: 1px solid var(--coral); border-radius: 50%; }
+	.beaton__next h3 { margin-top: 0.85rem; font-size: clamp(1.65rem, 3vw, 2.4rem); }
+	.beaton__next-description { max-width: 49ch; margin-top: 0.8rem; font-size: 0.97rem; line-height: 2; }
+	.beaton__roadmap-note { margin-top: 1.3rem; color: var(--ink-faint); font-size: 0.78rem; }
+	.beaton__next-visual {
+		position: relative;
+		min-height: 250px;
+		display: grid;
+		place-items: center;
+		isolation: isolate;
+	}
+	.beaton__search-orbit {
+		position: absolute;
+		width: min(100%, 270px);
+		aspect-ratio: 1;
+		border: 1px solid rgba(255, 130, 120, 0.13);
+		border-radius: 50%;
+		background: radial-gradient(circle, rgba(255, 130, 120, 0.07), transparent 68%);
+		z-index: -1;
+	}
+	.beaton__search-orbit span { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: var(--coral); opacity: 0.8; }
+	.beaton__search-orbit span:nth-child(1) { inset-block-start: 13%; inset-inline-start: 26%; }
+	.beaton__search-orbit span:nth-child(2) { inset-block-start: 58%; inset-inline-end: 4%; background: var(--accent); }
+	.beaton__search-orbit span:nth-child(3) { inset-block-end: 8%; inset-inline-start: 42%; width: 3px; height: 3px; }
+	.beaton__search-symbol {
+		position: absolute;
+		inset-block-start: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		display: grid;
+		width: 4.75rem;
+		height: 4.75rem;
+		place-items: center;
+		border: 1px solid rgba(255, 130, 120, 0.35);
+		border-radius: 20px;
+		background: #18131a;
+		color: var(--coral);
+		box-shadow: 0 0 38px rgba(255, 130, 120, 0.1);
+	}
+	.beaton__search-tags { position: absolute; inset: 0; }
+	.beaton__search-tag {
+		position: absolute;
+		padding: 0.46rem 0.7rem;
+		border: 1px solid var(--line-strong);
+		border-radius: 999px;
+		background: rgba(17, 19, 29, 0.94);
+		color: var(--ink-dim);
+		font-size: 0.73rem;
+		white-space: nowrap;
+	}
+	.beaton__search-tag--1 { inset-block-start: 17%; inset-inline-end: -1%; }
+	.beaton__search-tag--2 { inset-block-start: 59%; inset-inline-start: -1%; }
+	.beaton__search-tag--3 { inset-block-end: 7%; inset-inline-end: 5%; }
+	.beaton__visual-caption { position: absolute; inset-block-end: -0.5rem; color: var(--ink-faint); font-family: sans-serif; font-size: 0.59rem; letter-spacing: 0.18em; }
+	@media (max-width: 850px) {
+		.beaton__intro { grid-template-columns: 1fr 1fr; gap: 2rem; }
+		.beaton__current { grid-template-columns: repeat(3, 1fr); }
+		.beaton__current-label { grid-column: 1 / -1; }
+		.beaton__current-item { align-items: flex-start; flex-direction: column; gap: 0.25rem; }
+		.beaton__next { grid-template-columns: 1fr 0.85fr; gap: 1rem; }
+	}
+	@media (max-width: 620px) {
+		.beaton__intro { grid-template-columns: 1fr; gap: 1.1rem; }
+		.beaton__lead { max-width: 42ch; }
+		.beaton__current { grid-template-columns: 1fr; gap: 0.85rem; margin-top: 2.2rem; }
+		.beaton__current-label { grid-column: auto; margin-bottom: 0.2rem; }
+		.beaton__current-item { align-items: center; flex-direction: row; gap: 0.65rem; }
+		.beaton__next { grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+		.beaton__next-visual { min-height: 220px; }
+		.beaton__search-orbit { width: min(75%, 230px); }
+		.beaton__search-tag--1 { inset-inline-end: 1%; }
+		.beaton__search-tag--2 { inset-inline-start: 1%; }
+	}
+</style>

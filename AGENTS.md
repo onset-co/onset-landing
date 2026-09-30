@@ -21,4 +21,4 @@
 - Do not edit `.astro/` or `dist/` by hand; Astro generates them and both are ignored.
 - `wrangler.json` serves `dist/` as Worker assets and uses `dist/_worker.js/index.js` as the Worker entrypoint.
 - `worker-configuration.d.ts` is Wrangler-generated; regenerate it rather than manually maintaining its bindings.
-- `astro.config.mjs` currently sets `site` to `https://example.com`; update this before relying on canonical URLs or sitemap output for a real domain.
+- `astro.config.mjs` sets `site` to `https://onset.ir`, which is used for canonical URLs and sitemap output; update it if the production domain changes.
