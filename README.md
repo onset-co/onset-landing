@@ -28,6 +28,8 @@ Add these repository secrets in GitHub under **Settings > Secrets and variables 
 - `CLOUDFLARE_API_TOKEN`: a scoped token with permission to edit Workers and configure the `onset.ir` custom domain.
 - `CLOUDFLARE_ACCOUNT_ID`: the Cloudflare account that owns the Worker and the active `onset.ir` zone.
 
+Both must be **repository Actions secrets** with these exact names. If they are stored in a GitHub environment instead, the deploy job must declare that environment before it can read them. A missing secret resolves to an empty value and stops the deploy step.
+
 Wrangler configures `onset.ir` as a Worker Custom Domain. The zone must be active in the same Cloudflare account, and the hostname must not have a conflicting DNS record. For a local production deploy, run `npm run check` and then `npm run deploy` after authenticating Wrangler.
 
 ## Project structure
